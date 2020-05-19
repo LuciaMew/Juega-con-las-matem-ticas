@@ -1,0 +1,83 @@
+<!--
+    Autoras: Veronica Dura Sempere y Araceli Lucía Rebollo Dominguez
+    Asignatura: Usabilidad y Accesibilidad - Practica 3
+                3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+    Año: 2019
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="Juego web para la práctica 3 de UA">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="images/Logo_UA.png"/>
+    <title>Juega con las matemáticas</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stilo.css"/>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+</head>
+
+<body>
+    <!--
+    --usar regla(max 20) para aprender a sumar y restar, mover una ficha por encima y moverla para sacar el resultado. (regla arrastrando el objeto, más operación visual y que el niño seleccine en esta segunda fase el número y después le de a comprobar)
+
+    --secuencias de números -----------2 en 2, 3 en 3, 4 en 4
+
+    --bolsas de x color y arrastrar objetos del mismo color y decir cuantas hay en cada uno
+    --contar puntos/objetos (el 10 ponerlo en un bloque) ------contar cuantos hay(arrastrar los objetos a una bolsa/cesta y cuando tenga 10 se va y aparece otra vacía)
+    -->
+    <header>
+        <div class="cabecera">
+            <img class="logo" src="images/rompecabezas.png" alt="logo de la web juega con las matemáticas"/>
+            <h1>Juega con las matemáticas</h1>
+        </div>
+    </header>
+
+    <div class="contenido">
+        <div>
+            <figure>
+                <a href="reglaSuma.html">
+                    <img src="images/Patrulla Canina/Logo_PatrullaCanina.png" alt="Suma con la Patrulla Canina">
+                </a>
+                <figcaption>
+                    <p>
+                        <b>Título:</b> Suma con la Patrulla Canina
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+        <!--
+        <div>
+            <figure>
+                <a href="secuenciasNumeros.html">
+                    <img src="images/Vampirina/Logo_Vampirina.png" alt="Secuencias de números">
+                </a>
+                <figcaption>
+                    <p>
+                        <b>Título:</b> Secuencias de números
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+        -->
+        <div>
+            <figure>
+                <a href="contarObjetos.html">
+                    <img src="images/Lady Bug/Logo_LadyBug.png" alt="Separa y cuenta objetos con Lady Bug">
+                </a>
+                <figcaption>
+                    <p>
+                        <b>Título:</b> Separa y cuenta objetos <br>con Lady Bug
+                    </p>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+    <script type="text/javascript">sessionStorage.clear();</script>
+    <footer>
+        <p>&copy; Copyright<time datetime="2019">  2019 <strong>Ver&oacute;nica y Araceli </strong></time>
+    </footer>
+</body>
+</html>

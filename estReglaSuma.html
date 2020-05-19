@@ -1,0 +1,109 @@
+<!--
+    Autoras: Araceli Lucía Rebollo Dominguez
+    Asignatura: Usabilidad y Accesibilidad - Practica 3
+                3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+    Año: 2019
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="Juego web para la práctica 3 de UA">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="images/Logo_UA.png"/>
+    <title>Regla para Sumar</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stilo.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    
+    <style type="text/css">
+        .estadisticasPC {
+            margin: 10px;
+            text-align: left;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .estSumas {
+            width: 220px;
+            text-align: left;
+            display: block;
+            margin: auto;
+            /*margin-bottom: 10px;*/
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        --usar regla(max 20) para aprender a sumar y restar, mover una ficha por encima y moverla para sacar el resultado. (regla arrastrando el objeto, más operación visual y que el niño seleccine en esta segunda fase el número y después le de a comprobar)
+    -->
+    <header class="headJuego">
+        <div class="volver">
+            <a href="reglaSuma.html"> <img src="images/volver.png" alt="volver al juego"/> </a>
+        </div>
+        <div class="cabecera">
+            <img class="logo" src="images/Patrulla Canina/Logo_PatrullaCanina.png" alt="logo Patrulla Canina" />
+            <h1>Suma con la Patrulla Canina</h1>
+        </div>
+    </header>
+
+    <div  class="contenido2">
+        <!--<div class="juego">
+            <img class="fondo" src="images/Patrulla Canina/fondo_patrulla_canina.jpg" alt="fondo del juego Patrulla Canina">
+            <div class="contenedorJuego" id="containment-wrapper">
+            </div>
+        </div>-->
+        <div class="estadisticasPC" id="estPatCan"></div>
+        <div class="audio">
+            <img src="images/Patrulla Canina/personajes/1.jpg" alt="Personaje Patrulla Canina">
+        </div>
+    </div>
+    <script type="text/javascript">
+        let perroAudio = Math.floor(Math.random() * 8) + 1;
+        $(".audio").find("img").attr("src", "images/Patrulla Canina/personajes/"+perroAudio+".jpg");
+
+        //var sumas = sessionStorage.getItem("sumasActuales");
+        //var sumas2 = JSON.stringify(sessionStorage.getItem("sumasActuales"));
+        //console.log(sumas[0]);
+        //console.log(sessionStorage.getItem("sumasActuales")); 
+        //console.log(Object.values(sumas));
+
+        console.log(sessionStorage.length); 
+        let sumasTxt = document.createElement("div");
+        sumasTxt.setAttribute("style", "font-family: arial,sans-serif;");
+        sumasTxt.innerHTML = "";
+        
+        if(sessionStorage.length == 0) {
+            sumasTxt.innerHTML += `<p>No ha realizado ninguna suma</p><br>`;
+        } else{
+            sumasTxt.innerHTML += `<div class="estSumas" style="text-align:center;">Ha realizado: <b>${sessionStorage.length}</b> sumas</div>`;
+            for(var i=0;i<sessionStorage.length;i++){
+                console.log(sessionStorage.key(i));
+                console.log(JSON.parse( sessionStorage.getItem(sessionStorage.key(i)) ));
+                let actualSuma = JSON.parse( sessionStorage.getItem(sessionStorage.key(i)) );
+
+                sumasTxt.innerHTML += `<h3><u>Suma ${i+1}:</u>  ${actualSuma.sumando1} + ${actualSuma.sumando2} = ${actualSuma.resultado}</h3>
+                                <div class="estSumas">
+                                Fallos REGLA: <b>${actualSuma.fallosRegla}</b><br>
+                                Fallos SUMA: <b>${actualSuma.fallosSuma}</b><br>
+                                Fallos total: <b>${parseInt(actualSuma.fallosRegla) + parseInt(actualSuma.fallosSuma)}</b><br><br>
+                                Tiempo REGLA: <b>${actualSuma.tiempoRegla}</b> segundos<br>
+                                Tiempo SUMA: <b>${actualSuma.tiempoSuma}</b> segundos<br>                                
+                                Tiempo total: <b>${actualSuma.tiempo}</b> segundos<br><br>
+                                </div>`;
+            }
+        }
+        let txtS = document.getElementById('estPatCan');
+        txtS.appendChild(sumasTxt);
+    </script>
+
+    <footer>
+        <p>&copy; Copyright<time datetime="2019"> 2019 <strong>Araceli </strong></time></p>
+    </footer>
+</body>
+</html>

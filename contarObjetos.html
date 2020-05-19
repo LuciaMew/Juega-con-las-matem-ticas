@@ -1,0 +1,187 @@
+<!--
+    Autoras: Veronica Dura Sempere
+    Asignatura: Usabilidad y Accesibilidad - Practica 3
+                3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+    Año: 2019
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="Juego web para la práctica 3 de UA">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="images/Logo_UA.png"/>
+    <title>Separa y cuenta objetos</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stilo.css"/>
+
+    <!-- VERONICA Te los he puesto yo, son las ultimas versiones estables de jQuery y jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="js/function.js"></script>
+
+    <!-- VERONICA Luego esto pasaria a la hoja de estilo css -->
+    <style type="text/css">
+        .contenedor4 figure {
+            margin: 0;
+        }
+
+
+            .contenedor4 figure>a>img {
+                width: 40%;
+            }
+
+
+    </style>
+    <!-- VERONICA Luego esto pasaria a la hoja del js correspondiente. Lo de #containment-wrapper es para que no se salgan del .contenedorJuego (que ocupa el fondo) -->
+    <script>
+        $( function() {
+            $( "img[name='draggable2']" ).css("width", "50%"); /* CSS par alas imagenes de Plagg */
+
+            $( "img[name='draggable1']"  ).draggable({ containment: "#containment-wrapper", scroll: false });
+            $( "img[name='draggable2']" ).draggable({ containment: "#containment-wrapper", scroll: false });
+            $( "img[name='draggable3']"  ).draggable({ containment: "#containment-wrapper", scroll: false });
+           
+
+        } );
+    </script>
+</head>
+
+<body>
+    <!--
+        --bolsas de x color y arrastrar objetos del mismo color y decir cuantas hay en cada uno
+        --contar puntos/objetos (el 10 ponerlo en un bloque) ------contar cuantos hay(arrastrar los objetos a una bolsa/cesta y cuando tenga 10 se va y aparece otra vacía)
+    -->
+    <header class="headJuego">
+        <div class="volver">
+            <a href="index.html"> <img src="images/volver.png" alt="volver a index"/> </a>
+        </div>
+        <div class="cabecera">
+            <img class="logo logoLargo" src="images/Lady Bug/Logo_LadyBug.png" alt="logo Lady Bug" />
+            <h1>Separa y cuenta objetos con Lady Bug</h1>
+        </div>
+    </header>
+    <div><h3>Pincha en la caja, arrastra los objetos a sus cajas y cuenta cuantos hay en cada una.</h3></div>
+    <div class="contenido2">
+        <div class="juego">
+            <img class="fondo" src="images/Lady Bug/fondo_lady_bug.jpg" alt="fondo del juego Lady Bug">
+            <div class="contenedorJuego" id="containment-wrapper">
+                <!-- VERONICA Ye esto lo organizas como quieras, puedes hacerlo por divs si vas a utilizar grids como me imagino que haras para las cestas que tiene qu ehaber bajo para dropear en ellas -->
+                <div class="contenedor4">
+                    <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/Akuma.png" alt="Akuma"  id="draggable1" name="draggable1" class="ui-widget-content dragable"></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob2" onclick="move(this)"><img src="images/Lady Bug/5c346b124d5036028cf54088.png" alt="Plagg"  name="draggable2" class="ui-widget-content dragable " ></a>
+                    </figure>
+                    <figure >
+                         <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/tikki_render_41.png" alt="Tikki"  id="draggable3" name="draggable3" class="ui-widget-content dragable" ></a>
+                    </figure>
+                     <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/Akuma.png" alt="Akuma"  id="draggable1" name="draggable1" class="ui-widget-content dragable"></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob2" onclick="move(this)"><img src="images/Lady Bug/5c346b124d5036028cf54088.png" alt="Plagg"  name="draggable2" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                         <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/tikki_render_41.png" alt="Tikki"  id="draggable3" name="draggable3" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/Akuma.png" alt="Akuma"  id="draggable1" name="draggable1" class="ui-widget-content dragable"></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob2" onclick="move(this)"><img src="images/Lady Bug/5c346b124d5036028cf54088.png" alt="Plagg"  name="draggable2" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/tikki_render_41.png" alt="Tikki"  id="draggable3" name="draggable3" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/Akuma.png" alt="Akuma"  id="draggable1" name="draggable1" class="ui-widget-content dragable"></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob2" onclick="move(this)"><img src="images/Lady Bug/5c346b124d5036028cf54088.png" alt="Plagg"  name="draggable2" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                         <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/tikki_render_41.png" alt="Tikki"  id="draggable3" name="draggable3" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/Akuma.png" alt="Akuma"  id="draggable1" name="draggable1" class="ui-widget-content dragable"></a>
+                    </figure>
+                    <figure >
+                        <a href="#" name="ob2" onclick="move(this)"><img src="images/Lady Bug/5c346b124d5036028cf54088.png" alt="Plagg"  name="draggable2" class="ui-widget-content dragable" ></a>
+                    </figure>
+                    <figure >
+                         <a href="#" name="ob" onclick="move(this)"><img src="images/Lady Bug/tikki_render_41.png" alt="Tikki"  id="draggable3" name="draggable3" class="ui-widget-content dragable" ></a>
+                    </figure>
+
+                </div>
+                <div id="respuestas">
+                    <input type="image" id="re1" name="" src="" alt="" onclick="comprobar2(this)">
+                    <input type="image" id="re2" name="" src="" alt="" onclick="comprobar2(this)">
+                    <input type="image" id="re3" name="" src="" alt="" onclick="comprobar2(this)">
+                    <input type="image" id="re4" name="" src="" alt="" onclick="comprobar2(this)">
+                   <!-- <figure id="re1" class="ui-widget-content">
+                        <img src="" alt="" onclick="comprobar2(this)">
+                    </figure>
+                    <figure id="re2" class="ui-widget-content">
+                        <img src="" alt="" onclick="comprobar2(this)">
+                    </figure>
+                    <figure id="re3" class="ui-widget-content">
+                        <img src="" alt="" onclick="comprobar2(this)">
+                    </figure>
+                    <figure id="re4" class="ui-widget-content">
+                        <img src="" alt="" onclick="comprobar2(this)">
+                    </figure>-->
+                    <!--
+                    <p id="7" onclick="comprobar2(this)">7</p>
+                    <p id="5" onclick="comprobar2(this)">5</p>
+                    <p id="2" onclick="comprobar2(this)">2</p>
+                    <p id="8" onclick="comprobar2(this)">8</p>-->
+
+                </div>
+                <div class="contenido3">
+                   <!-- <button id="uno"></button>-->
+
+                    <a href="#" accesskey="a" name="drop1"><img src="images/Lady Bug/caja1.png" id="droppable1" class="ui-widget-header" alt="caja para Akuma"></a>
+
+                    <a href="#" accesskey="s" name="drop2"><img src="images/Lady Bug/caja2.png" id="droppable2" class="ui-widget-header" alt="caja para Plagg"></a>
+
+                    <a href="#" accesskey="z" name="drop3"><img src="images/Lady Bug/caja3.png" id="droppable3" class="ui-widget-header" alt="caja para Tikki" ></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="audio">
+            <div ><h2 id="pregunta">¿Cuantos objetos hay en cada caja?</h2></div>
+            <div ><h2 id="res">Muy Bien hay 5 objetos en cada caja</h2></div>
+            <div ><h2 id="res2">Te has equivocado, vuelve a intentarlo</h2></div>
+
+
+            <img src="images/Lady Bug/c7d83a07e2b7f3f2f1b140d60b6590af.png" alt="LadyBug personaje Lady Bug">
+        </div>
+    </div>
+     
+    <div id="timer">
+            <div id="container">
+                <div id="hour">00</div>
+                <div class="divider">:</div>
+                <div id="minute">00</div>
+                <div class="divider">:</div>
+                <div id="second">00</div>
+                
+            </div>
+            
+        </div> 
+   
+
+
+    <footer>
+        <p>&copy; Copyright<time datetime="2019"> 2019 <strong>Ver&oacute;nica </strong></time>
+        <a href="estadisticas.html"> <img class="estadistica" src="images/grafico-circular.png" alt="Estadísticas del juego para los profesores y/o padres"/> </a></p>
+
+    </footer>
+</body>
+</html>

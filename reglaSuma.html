@@ -1,0 +1,283 @@
+<!--
+    Autoras: Araceli Lucía Rebollo Dominguez
+    Asignatura: Usabilidad y Accesibilidad - Practica 3
+                3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+    Año: 2019
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="Juego web para la práctica 3 de UA">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="images/Logo_UA.png"/>
+    <title>Regla para Sumar</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stilo.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="js/sumar.js"></script>
+
+    <style type="text/css">
+        .regla {
+            display: grid;
+            grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+            align-items: center;
+            flex: 1;
+            margin-top: 10px;
+        }
+            .regla figure {
+                margin: 0;
+            }
+                .regla figure>img {
+                    width: 100%;
+                }
+                    .regla figure>figcaption>p {
+                        margin: 0;
+                        font-size: 20px;
+                        color: #0737ef;
+                        font-weight: bold;
+                    }
+                /* El hover en tablet no se va a ver
+                .regla figure>img:hover {
+                    width: 83px;
+                }
+                */
+                .perro {
+                    position:absolute;
+                    top: 10px;
+                    left: 0%; /* esto es lo que tengo que cambiar con jQuery para que empiece en la pos que quiero mirarlo desplazandolo tantas veces el ancho de la img de la pata --> $( "#droppablePata1").width() */
+                    width: 10%;
+                }
+        .suma {
+            display: grid;
+            grid-template-columns: 20% 20% 60%;
+            align-items: center;
+            flex: 1;
+            margin-top: 5%;
+            margin-left: 10%;
+        }
+        .resultados1 figure, .resultados2 figure {
+            margin: 0;
+        }
+        .resultados1 figure>img, .resultados2 figure>img {
+            width: 100%;
+        }
+        .operacion {
+            width: 50%;
+            margin-left: 35%;
+        }
+        .operacion p {
+            font-size: 60px;
+            font-weight: bold;
+            margin: 0;
+            color: #000000;
+        }
+        .sumandos {
+            border-bottom: 3px solid #000000;
+        }
+        .sumando2 {
+            display: grid;
+            grid-template-columns: 25% 25%;
+            align-items: center;
+            flex: 1;
+            margin-top: 0;
+            margin-left: 5px;
+        }
+        #sum2 {
+            margin-left: 68%;
+        }
+        .resultado figure {
+            margin: 0;
+            margin-top: 5px;
+        }
+        .resultado figure>img {
+            width: 50%;
+        }
+
+        #ventanaFinJuegoGanado{
+            position: fixed;
+            width: 370px;
+            height: 480px;
+            top: 0;
+            left: 0;
+            /*font-family:Verdana, Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            font-weight: normal;*/
+            border: #93C297 3px solid;
+            background-color: #C1FFC6;
+            color: #000F;
+            display:none;
+            text-align: center;
+            /*margin-left: 5.5em;*/
+        }
+                #ventanaFinJuegoGanado>p>input[type="button"]{
+                    width: 10em;
+                    /*margin: 0;*/
+                    margin-bottom: 1em;
+                    padding: .5em;
+                    box-sizing: border-box;
+                }
+                #ventanaFinJuegoGanado>p>input[type="button"]:hover{
+                    cursor: pointer;
+                }
+    </style>
+</head>
+
+<body>
+    <!--
+        --usar regla(max 20) para aprender a sumar y restar, mover una ficha por encima y moverla para sacar el resultado. (regla arrastrando el objeto, más operación visual y que el niño seleccine en esta segunda fase el número y después le de a comprobar)
+    -->
+    <header class="headJuego">
+        <div class="volver">
+            <a id="vlr" href="index.html"> <img src="images/volver.png" alt="volver a index"/> </a>
+        </div>
+        <div class="cabecera">
+            <img class="logo" src="images/Patrulla Canina/Logo_PatrullaCanina.png" alt="logo Patrulla Canina" />
+            <h1>Suma con la Patrulla Canina</h1>
+        </div>
+    </header>
+
+    <div class="contenido2">
+        <div class="juego">
+            <img class="fondo" src="images/Patrulla Canina/fondo_patrulla_canina.jpg" alt="fondo del juego Patrulla Canina">
+            <div class="contenedorJuego" id="containment-wrapper">
+
+                <!-- REGLA -->
+                <div class="regla">
+                    <figure id="droppablePata1" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata1">1</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata2" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata2">2</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata3" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata3">3</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata4" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata4">4</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata5" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata5">5</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata6" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata6">6</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata7" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata7">7</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata8" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata8">8</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata9" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata9">9</p>
+                        </figcaption>
+                    </figure>
+                    <figure id="droppablePata10" class="ui-widget-header">
+                        <img src="images/Patrulla Canina/pata.png" alt="imagen pata de perro" />
+                        <figcaption>
+                            <p id="pata10">10</p>
+                        </figcaption>
+                    </figure>
+
+                    <figure id="draggablePerro" class="ui-widget-content perro" tabindex="0">
+                        <img src="images/Patrulla Canina/personajes/1.png" alt="Personaje Patrulla Canina">
+                    </figure>
+
+                    <!--
+                    <figure id="correcto">
+                        <img src="images/Patrulla Canina/checked.png" alt="correcto">
+                    </figure>
+                    -->
+                </div>
+
+
+                <!-- SUMA -->
+                <div class="suma">
+                    <div class="resultados1">
+                        <figure id="draggableRes1" class="ui-widget-content">
+                            <img src="images/Patrulla Canina/resultados/interrogacion.png" alt="1">
+                        </figure>
+                        <figure id="draggableRes2" class="ui-widget-content">
+                            <img src="images/Patrulla Canina/resultados/interrogacion.png" alt="2">
+                        </figure>
+                    </div>
+                    <div class="resultados2">
+                        <figure id="draggableRes3" class="ui-widget-content">
+                            <img src="images/Patrulla Canina/resultados/interrogacion.png" alt="3">
+                        </figure>
+                        <figure id="draggableRes4" class="ui-widget-content">
+                            <img src="images/Patrulla Canina/resultados/interrogacion.png" alt="4">
+                        </figure>
+                    </div>
+
+                    <div class="operacion">
+                        <div class="sumandos">
+                            <div class="sumando1">
+                                <p id="sum1">1</p>
+                            </div>
+                            <div class="sumando2">
+                                <div>
+                                    <p id="signo">+</p>
+                                </div>
+                                <div>
+                                    <p id="sum2">2</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resultado">
+                            <figure id="droppableRes" class="ui-widget-header">
+                                <img src="images/Patrulla Canina/resultados/interrogacion.png" alt="interrogacion">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <!-- <button onclick="anyadirSumaNueva()">Otra suma</button> -->
+            </div>
+        </div>
+        <div class="audio">
+            <img src="images/Patrulla Canina/personajes/1.jpg" alt="Personaje Patrulla Canina">
+        </div>
+    </div>
+
+    <div id="ventanaFinJuegoGanado"></div>
+    <script>
+        prepararJuego();
+    </script>
+
+    <footer>
+        <p>&copy; Copyright<time datetime="2019"> 2019 <strong>Araceli </strong></time>
+        <a href="estReglaSuma.html"> <img class="estadistica" src="images/grafico-circular.png" alt="Estadísticas del juego para los profesores y/o padres"/> </a></p>
+    </footer>
+</body>
+</html>

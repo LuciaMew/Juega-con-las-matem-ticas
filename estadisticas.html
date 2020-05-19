@@ -1,0 +1,60 @@
+<!--
+    Autoras: Veronica Dura Sempere
+    Asignatura: Usabilidad y Accesibilidad - Practica 3
+                3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+    Año: 2019
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta name="description" content="Juego web para la práctica 3 de UA">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="shortcut icon" href="images/Logo_UA.png"/>
+    <title>Separa y cuenta objetos</title>
+
+    <link rel="stylesheet" type="text/css" href="css/stilo.css"/>
+
+    <!-- VERONICA Te los he puesto yo, son las ultimas versiones estables de jQuery y jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+    <script src="js/function.js"></script>
+</head>
+
+<body>
+    <header class="headJuego">
+        <div class="volver">
+            <a href="contarObjetos.html"> <img src="images/volver.png" alt="volver al juego"/> </a>
+        </div>
+        <div class="cabecera">
+            
+            <h1>Estadísticas Contar Objetos</h1>
+          
+        </div>
+    </header>
+    <div class="contenido2" style="margin-top: 1em;">
+        <div id="timero">
+            <div id="container">
+               
+                <label>Minutos:</label><p id="minute2"></p>
+                <label>Segundos:</label><p id="second2"></p>
+                <label>Fallos:</label><p id="fallos"></p>
+                
+            </div>
+        </div>
+        <div class="audio">
+        </div>
+    </div>
+    <script type="text/javascript">
+        mostrar();
+    </script>
+
+     <footer>
+        <p>&copy; Copyright<time datetime="2019"> 2019 <strong>Ver&oacute;nica </strong></time></p>
+               
+    </footer>
+</body>
+</html>
