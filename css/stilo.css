@@ -1,0 +1,288 @@
+﻿/*
+	Autoras: Veronica Dura Sempere y Araceli Lucía Rebollo Dominguez
+	Asignatura: Usabilidad y Accesibilidad - Practica 3
+				3er curso del grado de Ingenieria Multimedia, Universidad de Alicante
+	Año: 2019
+*/
+
+/* ESTILO PRINCIPAL DE LA PAGINA */
+
+/* CONFIGURACION DE LA PAGINA */
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi');
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+/* CABECERA */
+header {
+	background-color: #19b9b0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: 'Baloo Thambi', cursive;
+	font-size: 100%;
+    margin-bottom: 5px;
+}
+.cabecera {
+    display: inline-block;
+    width: 75%;
+    margin: auto;
+    text-align: center;
+    color: #f3f2f2;
+    padding-bottom: 8px;
+}
+    .logo {
+        width: 100px;
+        float: left;
+        padding-top: 15px;
+        margin-right: 5px;
+    }
+    .logoLargo {
+        padding-top: 0.5%;
+        width: 15%;
+        /*padding-top: 50px;
+        width: 150px;*/
+    }
+.headJuego {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 10% 90%;
+	align-items: center;
+	flex: 0.01;
+}
+    .volver {
+        padding-top: 5px;
+        height: 80px;
+    }
+        .volver img {
+        	height: 60px;
+        	padding-left: 2em;
+        	padding-top: 10px;
+        }
+
+/* CONTENIDO DEL BODY */
+/* Index */
+/* Esto era para cuando estaba Vampirina
+.contenido {
+	display: grid;
+	grid-template-columns: 33.33% 33.33% 33.33%;
+	align-items: center;
+	flex: 1;
+	padding-top: 2em;
+}
+*/
+.contenido {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    flex: 1;
+    /*padding-top: 2em;*/
+}
+    .contenido img {
+    	height: 100px;
+    }
+    .contenido figure {
+        display: block;
+        margin: auto;
+        text-align: center;
+    }
+
+/* Juegos */
+.contenido2 {
+	display: grid;
+	grid-template-columns: 80% 20%;
+	align-items: center;
+	flex: 1;
+	/*padding-top: 1em;*/
+}
+    .juego {
+        /*border: 1.5px solid #19b9b0;*/
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        background-color: inherit;
+    }
+        .fondo {
+        	width: 95%;
+            opacity: 0.75;
+        }
+        .contenedorJuego {
+            position:absolute;
+            top: 0;
+            left: 2.6%;
+            border: none;
+            width: 95%;
+            height: 99%;
+        }
+    .audio {
+        padding: 0;
+        padding-top: 35%;
+    }
+        .audio img {
+            width: 95%;
+        }
+
+/* FOOTER */
+footer {
+	background-color: #19b9b0;
+	text-align: center;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	color: #ffffff;
+}
+.estadistica {
+    width: 20px;
+    float: right;
+    margin-top: 2px;
+    margin-right: 20px;
+}
+
+/* MEDIA QUERIES */
+@media all and (min-width: 1267px) {
+.contenido2 {
+    width: 1270px;
+}
+    .juego {
+        width: 960px;
+    }
+        .fondo {
+            width: 912px;
+        }
+        .contenedorJuego {
+            width: 912px;
+        }
+    .audio {
+        width: 254px;
+    }
+        .audio img {
+            width: 241px;
+        }
+}
+@media all and (max-width: 850px) {
+.contenido2 {
+    width: 850px;
+}
+    .juego{
+        width: 680px;
+    }
+        .fondo {
+            width: 646px;
+        }
+        .contenedorJuego {
+            width: 646px;
+        }
+    .audio {
+        width: 170px;
+    }
+        .audio img {
+            width: 161px;
+        }
+}
+
+
+/* Pruebas Veronica*/
+
+#droppable1, #droppable2, #droppable3 {
+    width: 55%;
+    height: 70%;
+    padding: 0.5%;
+    float: left;
+    margin: 10%;
+    /*width: 150px;
+    height: 150px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px;*/
+}
+
+.contenido3 {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    align-items: center;
+    flex: 1;
+    /* position: relative;
+    top:-15%;*/
+
+    padding-left: 3%;
+    /*padding-left: 3em;*/
+}
+    .contenido3 img {
+        margin-left: 20%;
+        /*margin-left: 20em;*/
+    }
+
+.contenedor4 {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    align-items: center;
+    flex: 1;
+}
+
+#timer {margin:30px auto 0;width:400px;display: none;}
+#timer .container {display:table;background:#777;color:#eee;font-weight:bold;width:100%;text-align:center;text-shadow:1px 1px 4px #999;}
+#timer .container div {display:table-cell;font-size:60px;padding:10px;width:20px;}
+#timer .container .divider {width:10px;color:#ddd;}
+
+h2 {
+    display: none;
+    margin:0;
+    padding:0.5%;
+    /*padding:0.5em;*/
+    font-family: 'Baloo Thambi', cursive;
+}
+h3 {
+    text-align: center;
+    font-family: 'Baloo Thambi', cursive;
+    font-size: 150%;
+    margin:0;
+    padding:0.5%;
+    /*padding:0.5em;*/
+}
+
+/*
+#respuestas {
+    grid-template-columns: 25% 25% 25% 25%;
+    display: grid;
+    align-items: center;
+    display: none;
+    position: relative;
+    top:-30%;
+    left: 5%;
+}
+*/
+#respuestas {
+    grid-template-columns: 30% 30% 30% 30%;
+    display: grid;
+    align-items: center;
+    display: none;
+    position: absolute;
+    top:30%;
+    left: 10%;
+}
+
+#timero{
+    align-self: center;
+    text-align: center;
+}
+
+#timero .container {
+    grid-template-columns: 50% 50%;
+    display: grid;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    text-align: center;
+}
+
+
+p, label {
+    font-family: 'Baloo Thambi', cursive;
+    text-align: center;
+}
+
